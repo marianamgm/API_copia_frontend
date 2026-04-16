@@ -6,4 +6,4 @@ export interface EstudianteModel {
   est_Telefono:string;
   est_Direccion:string;
   est_Contra:string;
-}
+}  

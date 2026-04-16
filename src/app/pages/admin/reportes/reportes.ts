@@ -13,6 +13,7 @@ export class ReportesComponent implements OnInit {
 
   lista: any[] = [];
 
+ 
   nuevo: any = {
     rep_Estudiante: '',
     rep_Estado: '',
@@ -25,12 +26,15 @@ export class ReportesComponent implements OnInit {
     this.cargar();
   }
 
+ 
   cargar() {
     this.service.getReportes().subscribe((res: any) => {
+      console.log(res);
       this.lista = res;
     });
   }
 
+ 
   guardar() {
 
     if (!this.nuevo.rep_Estudiante || !this.nuevo.rep_Estado) {
@@ -40,10 +44,7 @@ export class ReportesComponent implements OnInit {
 
     this.nuevo.rep_Fecha = new Date();
 
-    this.service.addReporte(this.nuevo).subscribe((res: any) => {
-
-     
-      this.lista.unshift(res);
+    this.service.addReporte(this.nuevo).subscribe(() => {
 
   
       this.nuevo = {
@@ -52,6 +53,8 @@ export class ReportesComponent implements OnInit {
         rep_Fecha: new Date()
       };
 
+      // recargar tabla
+      this.cargar();
     });
   }
 }

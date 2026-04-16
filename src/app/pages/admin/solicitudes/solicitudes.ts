@@ -13,7 +13,6 @@ export class SolicitudesComponent implements OnInit {
 
   lista: any[] = [];
 
- 
   nuevo: any = {
     sol_CorreoEst: '',
     sol_Estado: 'Pendiente'
@@ -41,10 +40,8 @@ export class SolicitudesComponent implements OnInit {
 
     this.service.add(this.nuevo).subscribe((res: any) => {
 
-    
       this.lista.unshift(res);
 
-  
       this.nuevo = {
         sol_CorreoEst: '',
         sol_Estado: 'Pendiente'
@@ -53,15 +50,16 @@ export class SolicitudesComponent implements OnInit {
     });
   }
 
+
   aprobar(s: any) {
     s.sol_Estado = 'Aprobada';
 
     this.service.update(s).subscribe(() => {
 
       const reporte = {
-        rep_Estudiante: s.sol_CorreoEst,
-        rep_Estado: 'Aprobada',
-        rep_Fecha: new Date()
+        Rep_Estudiante: s.sol_CorreoEst,
+        Rep_Estado: 'Aprobada',
+        Rep_Fecha: new Date().toISOString()
       };
 
       this.service.addReporte(reporte).subscribe(() => {
@@ -71,15 +69,16 @@ export class SolicitudesComponent implements OnInit {
     });
   }
 
+  
   rechazar(s: any) {
     s.sol_Estado = 'Rechazada';
 
     this.service.update(s).subscribe(() => {
 
       const reporte = {
-        rep_Estudiante: s.sol_CorreoEst,
-        rep_Estado: 'Rechazada',
-        rep_Fecha: new Date()
+        Rep_Estudiante: s.sol_CorreoEst,
+        Rep_Estado: 'Rechazada',
+        Rep_Fecha: new Date().toISOString()
       };
 
       this.service.addReporte(reporte).subscribe(() => {

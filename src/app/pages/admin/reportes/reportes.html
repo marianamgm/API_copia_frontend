@@ -1,27 +1,6 @@
 <div class="container">
 
-  
-  <h2>Crear Reporte</h2>
-
-  <div class="form">
-
-    <input type="text"
-           placeholder="Estudiante"
-           [(ngModel)]="nuevo.rep_Estudiante">
-
-    <select [(ngModel)]="nuevo.rep_Estado">
-      <option value="">Selecciona estado</option>
-      <option value="Aprobada">Aprobada</option>
-      <option value="Rechazada">Rechazada</option>
-    </select>
-
-    <button (click)="guardar()">Guardar Reporte</button>
-
-  </div>
-
-  <br><br>
-
-  <h2>Lista de Reportes</h2>
+  <h2>Reportes</h2>
 
   <table>
 

@@ -8,6 +8,28 @@ h2 {
 }
 
 
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  background: #800020;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -18,7 +40,6 @@ th {
   background: #800020;
   color: white;
   padding: 10px;
-  text-align: left;
 }
 
 td {
@@ -36,14 +57,9 @@ tr:hover {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  margin-right: 5px;
   color: white;
 }
 
-.aprobar {
-  background: #28a745;
-}
-
-.rechazar {
+.eliminar {
   background: #dc3545;
 }
