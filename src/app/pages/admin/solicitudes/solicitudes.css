@@ -1,0 +1,49 @@
+.container {
+  padding: 20px;
+}
+
+h2 {
+  color: #800020;
+  margin-bottom: 15px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th {
+  background: #800020;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background: #f5f5f5;
+}
+
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  color: white;
+}
+
+.aprobar {
+  background: #28a745;
+}
+
+.rechazar {
+  background: #dc3545;
+}

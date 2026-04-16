@@ -1,6 +1,28 @@
 <div class="container">
 
-  <h2 class="title">Solicitudes</h2>
+
+  <h2>Crear Solicitud</h2>
+
+  <div class="form">
+
+    <input type="text"
+           placeholder="Correo del estudiante"
+           [(ngModel)]="nuevo.sol_CorreoEst">
+
+    <select [(ngModel)]="nuevo.sol_Estado">
+      <option value="">Selecciona estado</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Aprobada">Aprobada</option>
+      <option value="Rechazada">Rechazada</option>
+    </select>
+
+    <button (click)="guardar()">Guardar Solicitud</button>
+
+  </div>
+
+  <br><br>
+
+  <h2>Lista de Solicitudes</h2>
 
   <table>
 
@@ -17,11 +39,11 @@
 
       <td>
 
-        <button class="btn btn-edit" (click)="aprobar(s)">
+        <button class="btn aprobar" (click)="aprobar(s)">
           Aprobar
         </button>
 
-        <button class="btn btn-delete" (click)="rechazar(s)">
+        <button class="btn rechazar" (click)="rechazar(s)">
           Rechazar
         </button>
 

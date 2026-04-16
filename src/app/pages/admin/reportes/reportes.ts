@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reportes',
-   imports: [CommonModule, FormsModule], 
+  imports: [CommonModule, FormsModule], 
   templateUrl: './reportes.html',
   styleUrls: ['./reportes.css']
 })
@@ -13,11 +13,45 @@ export class ReportesComponent implements OnInit {
 
   lista: any[] = [];
 
+  nuevo: any = {
+    rep_Estudiante: '',
+    rep_Estado: '',
+    rep_Fecha: new Date()
+  };
+
   constructor(private service: SolicitudService) {}
 
   ngOnInit(): void {
-    this.service.getReporte().subscribe((res: any) => {
-      this.lista = res.data || res || [];
+    this.cargar();
+  }
+
+  cargar() {
+    this.service.getReportes().subscribe((res: any) => {
+      this.lista = res;
+    });
+  }
+
+  guardar() {
+
+    if (!this.nuevo.rep_Estudiante || !this.nuevo.rep_Estado) {
+      alert('Completa todos los campos');
+      return;
+    }
+
+    this.nuevo.rep_Fecha = new Date();
+
+    this.service.addReporte(this.nuevo).subscribe((res: any) => {
+
+     
+      this.lista.unshift(res);
+
+  
+      this.nuevo = {
+        rep_Estudiante: '',
+        rep_Estado: '',
+        rep_Fecha: new Date()
+      };
+
     });
   }
 }

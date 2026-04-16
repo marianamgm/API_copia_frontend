@@ -1,6 +1,27 @@
 <div class="container">
 
-  <h2>Reportes</h2>
+  
+  <h2>Crear Reporte</h2>
+
+  <div class="form">
+
+    <input type="text"
+           placeholder="Estudiante"
+           [(ngModel)]="nuevo.rep_Estudiante">
+
+    <select [(ngModel)]="nuevo.rep_Estado">
+      <option value="">Selecciona estado</option>
+      <option value="Aprobada">Aprobada</option>
+      <option value="Rechazada">Rechazada</option>
+    </select>
+
+    <button (click)="guardar()">Guardar Reporte</button>
+
+  </div>
+
+  <br><br>
+
+  <h2>Lista de Reportes</h2>
 
   <table>
 
@@ -8,14 +29,14 @@
       <th>ID</th>
       <th>Estudiante</th>
       <th>Estado</th>
+      <th>Fecha</th>
     </tr>
 
     <tr *ngFor="let item of lista">
-
-      <td>{{ item.id }}</td>
-      <td>{{ item.estudiante }}</td>
-      <td>{{ item.estado }}</td>
-
+      <td>{{ item.rep_Id }}</td>
+      <td>{{ item.rep_Estudiante }}</td>
+      <td>{{ item.rep_Estado }}</td>
+      <td>{{ item.rep_Fecha | date:'short' }}</td>
     </tr>
 
   </table>

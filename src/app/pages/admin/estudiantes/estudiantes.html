@@ -1,6 +1,29 @@
 <div class="container">
 
-  <h2 class="title">Estudiantes</h2>
+ 
+  <h2>Crear Estudiante</h2>
+
+  <div class="form">
+
+    <input type="text"
+           placeholder="Nombre"
+           [(ngModel)]="nuevo.est_Nombre">
+
+    <input type="email"
+           placeholder="Correo"
+           [(ngModel)]="nuevo.est_Correo">
+
+    <input type="text"
+           placeholder="Carrera"
+           [(ngModel)]="nuevo.est_Carrera">
+
+    <button (click)="guardar()">Guardar</button>
+
+  </div>
+
+  <br><br>
+
+  <h2>Lista de Estudiantes</h2>
 
   <table>
 
@@ -18,7 +41,7 @@
       <td>{{ item.est_Carrera }}</td>
 
       <td>
-        <button class="btn btn-delete" (click)="eliminar(item.est_Id)">
+        <button class="btn eliminar" (click)="eliminar(item.est_Id)">
           Eliminar
         </button>
       </td>
